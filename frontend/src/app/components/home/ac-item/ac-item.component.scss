@@ -1,0 +1,112 @@
+.card {
+    border: 1px solid rgb(53, 95, 129);
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.name {
+    color: #fdcf9b;
+    margin-left: .25em;
+}
+
+h2 mat-icon {
+    vertical-align: sub;
+    margin-left: .25em;
+}
+
+.power {
+    color: #ff5c5c;
+}
+
+.cool {
+    color: #5cb0ff;
+}
+
+.heat {
+    color: #fd8827;
+}
+
+#wind {
+    color: #3d61ff;
+}
+
+.dry {
+    color: #fde559;
+}
+
+.auto {
+    color: #fa4398;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    height: fit-content;
+    text-align: center;
+}
+
+.measruement {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.temperature, .humidity {
+    font-size: 3em;
+    color: rgb(177, 177, 177);
+}
+
+.set {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.setpoint {
+    font-size: 2.5em;
+    color: rgb(110, 197, 115);
+}
+
+.temperatur-plus {
+    background-color: #d9a1a1;
+}
+
+.temperatur-decrease {
+    background-color: #7fa7d6;
+}
+
+.temperatur-increase {
+    background-color: #d9a1a1;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.wind {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: .5em;
+}
+
+mat-button-toggle-group {
+    margin-bottom: 1em;
+}
+
+mat-button-toggle-group:last-of-type {
+    margin-bottom: 0;
+}
+
+p {
+    color: rgb(159, 159, 159);
+    margin-bottom: 0;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}

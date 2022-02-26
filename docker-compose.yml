@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  frontend:
+    build: frontend
+    container_name: schwering_app_air_conditioner_frontend
+    restart: unless-stopped
+    ports:
+      - 10004:80
+
+  backend:
+    build: backend
+    container_name: schwering_app_air_conditioner_backend
+    restart: unless-stopped
+    env_file: .env

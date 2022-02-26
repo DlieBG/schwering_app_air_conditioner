@@ -1,0 +1,129 @@
+<div class="card">
+
+    <div *ngIf="status; else loading;">
+        <h2>
+            <mat-slide-toggle color="warn" [checked]="status.power == 'on'" (change)="powerChange($event)">
+
+                <mat-icon class="power" *ngIf="status.power == 'off'">power_settings_new</mat-icon>
+                <ng-container *ngIf="true || status.power == 'on'">
+                    <mat-icon class="cool" *ngIf="status.mode == 'cool'">ac_unit</mat-icon>
+                    <mat-icon class="heat" *ngIf="status.mode == 'heat'">local_fire_department</mat-icon>
+                    <mat-icon id="wind" *ngIf="status.mode == 'wind'">air</mat-icon>
+                    <mat-icon class="dry" *ngIf="status.mode == 'dry'">dry_cleaning</mat-icon>
+                    <mat-icon class="auto" *ngIf="status.mode == 'auto'">auto_fix_high</mat-icon>
+                </ng-container>
+
+                <span class="name">
+                    {{ ac.name }}
+                </span> 
+            </mat-slide-toggle>
+        </h2>
+    
+        <div>
+            <div class="measruement">
+                <table>
+                    <tr>
+                        <td>
+                            <span class="temperature">{{ status.temperature }} °C</span>
+                        </td>
+                        <td>
+                            <span class="humidity">{{ status.humidity }} %</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="set" *ngIf="status.mode != 'wind'">
+                <table>
+                    <tr>
+                        <td>
+                            <button mat-mini-fab class="temperatur-decrease" (click)="temperatureDecrease()" [disabled]="status.power == 'off' || (status.temperatureSetpoint <= status.minimumTemperatureSetpoint)"><mat-icon>remove</mat-icon></button>
+                        </td>
+                        <td>
+                            <span class="setpoint">{{ status.temperatureSetpoint }} °C</span>
+                        </td>
+                        <td>
+                            <button mat-mini-fab class="temperatur-increase" (click)="temperatureIncrease()" [disabled]="status.power == 'off' || (status.temperatureSetpoint >= status.maximumTemperatureSetpoint)"><mat-icon>add</mat-icon></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="mode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Modus</mat-label>
+                    <mat-select [(ngModel)]="status.mode" (selectionChange)="modeChange()" [disabled]="status.power == 'off'">
+                      <mat-option value="cool">Kühlen</mat-option>
+                      <mat-option value="heat">Heizen</mat-option>
+                      <mat-option value="wind">Ventilator</mat-option>
+                      <mat-option value="dry">Trocknen</mat-option>
+                      <mat-option value="auto">Automatik</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="wind">
+                <mat-button-toggle-group (click)="windModeChange()" [(ngModel)]="status.windMode" [disabled]="status.power == 'off'">
+                    <mat-button-toggle value="off">
+                        Normal
+                    </mat-button-toggle>
+                    <mat-button-toggle value="windFree">
+                        WindFree
+                    </mat-button-toggle>
+                    <mat-button-toggle value="sleep">
+                        <mat-icon>bedtime</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="windFreeSleep">
+                        <mat-icon>hearing</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="speed">
+                        Turbo
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                
+                <mat-button-toggle-group (click)="windSpeedChange()" [(ngModel)]="status.windSpeed" [disabled]="status.power == 'off'">
+                    <mat-button-toggle value="auto" [disabled]="status.mode == 'wind'">
+                        Auto
+                    </mat-button-toggle>
+                    <mat-button-toggle value="low">
+                        Schwach
+                    </mat-button-toggle>
+                    <mat-button-toggle value="medium">
+                        Normal
+                    </mat-button-toggle>
+                    <mat-button-toggle value="high">
+                        Stark
+                    </mat-button-toggle>
+                    <mat-button-toggle value="turbo">
+                        Turbo
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+
+                <mat-button-toggle-group (click)="windDirectionChange()" [(ngModel)]="status.windDirection" [disabled]="status.power == 'off'">
+                    <mat-button-toggle value="fixed">
+                        <mat-icon>block</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="vertical">
+                        <mat-icon>swap_vert</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="horizontal">
+                        <mat-icon>swap_horiz</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="all">
+                        <mat-icon>swap_vert</mat-icon>
+                        +
+                        <mat-icon>swap_horiz</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <!-- {{ status | json}} -->
+        </div>
+    </div>
+
+    <ng-template #loading>
+        <div class="loader">
+            <mat-spinner color="accent" diameter="50"></mat-spinner>
+        </div>
+    </ng-template>
+
+</div>

@@ -1,0 +1,33 @@
+.content {
+    margin: 1em;
+}
+
+h1 {
+    color: #00c3ff;
+}
+
+.name {
+    color: #84ffd1;
+}
+
+.list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.ac {
+    max-width: 400px;
+    width: 100%;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

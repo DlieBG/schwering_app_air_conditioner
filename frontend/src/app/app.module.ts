@@ -19,6 +19,7 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
 import { HomeComponent } from './components/home/home/home.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AcItemComponent } from './components/home/ac-item/ac-item.component';
+import { PreviewItemComponent } from './components/widget/preview-item/preview-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AcItemComponent } from './components/home/ac-item/ac-item.component';
     WidgetComponent,
     UnauthorizedComponent,
     HomeComponent,
-    AcItemComponent
+    AcItemComponent,
+    PreviewItemComponent
   ],
   imports: [
     BrowserModule,

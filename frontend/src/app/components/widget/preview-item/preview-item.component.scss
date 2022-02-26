@@ -1,0 +1,65 @@
+.body {
+    width: 50vw;
+    height: calc(50vh - 24px);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.center {
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: .5em;
+    font-weight: 400;
+    color: rgb(209, 245, 179);
+}
+
+mat-icon {
+    vertical-align: sub;
+    margin-right: .5em;
+}
+
+.temperature {
+    font-size: 2em;
+}
+
+.sync {
+    color: #555;
+}
+
+.skeleton {
+    color: #555;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.hidden {
+    color: #222;
+}
+
+.power {
+    color: #ff5c5c;
+}
+
+.cool {
+    color: #5cb0ff;
+}
+
+.heat {
+    color: #fd8827;
+}
+
+#wind {
+    color: #3d61ff;
+}
+
+.dry {
+    color: #fde559;
+}
+
+.auto {
+    color: #fa4398;
+}

@@ -5,7 +5,7 @@
             <mat-slide-toggle color="warn" [checked]="status.power == 'on'" (change)="powerChange($event)">
 
                 <mat-icon class="power" *ngIf="status.power == 'off'">power_settings_new</mat-icon>
-                <ng-container *ngIf="true || status.power == 'on'">
+                <ng-container *ngIf="status.power == 'on'">
                     <mat-icon class="cool" *ngIf="status.mode == 'cool'">ac_unit</mat-icon>
                     <mat-icon class="heat" *ngIf="status.mode == 'heat'">local_fire_department</mat-icon>
                     <mat-icon id="wind" *ngIf="status.mode == 'wind'">air</mat-icon>

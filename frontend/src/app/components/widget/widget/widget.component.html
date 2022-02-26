@@ -1,12 +1,8 @@
 <div class="body">
     <h3>Klimaübersicht</h3>
 
-    <!-- <div class="buttons" *ngIf="(favorites$ | async) as favorites; else loading;">
-        <button mat-raised-button *ngFor="let favorite of favorites;" (click)="switch(favorite)"><mat-icon>{{ favorite.icon }}</mat-icon> {{ favorite.name }}</button>
-    </div> -->
-
-    <div *ngIf="false; else loading;">
-
+    <div class="previews" *ngIf="(acs$ | async) as acs; else loading;">
+        <app-preview-item *ngFor="let ac of acs;" [ac]="ac"></app-preview-item>
     </div>
 
     <ng-template #loading>

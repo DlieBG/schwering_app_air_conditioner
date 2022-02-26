@@ -8,6 +8,12 @@ h3 {
     color: rgb(179, 210, 245);
 }
 
+.previews {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
 .loader {
     height: calc(100% - 32px - 0.5em);
     display: flex;

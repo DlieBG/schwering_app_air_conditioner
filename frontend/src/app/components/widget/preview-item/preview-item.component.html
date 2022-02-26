@@ -1,0 +1,24 @@
+<div class="body">
+    <div class="center">
+        <h3>{{ ac.name }}</h3>
+
+        <div *ngIf="status">
+            <mat-icon class="power" *ngIf="status.power == 'off'">power_settings_new</mat-icon>
+            <ng-container *ngIf="status.power == 'on'">
+                <mat-icon class="cool" *ngIf="status.mode == 'cool'">ac_unit</mat-icon>
+                <mat-icon class="heat" *ngIf="status.mode == 'heat'">local_fire_department</mat-icon>
+                <mat-icon id="wind" *ngIf="status.mode == 'wind'">air</mat-icon>
+                <mat-icon class="dry" *ngIf="status.mode == 'dry'">dry_cleaning</mat-icon>
+                <mat-icon class="auto" *ngIf="status.mode == 'auto'">auto_fix_high</mat-icon>
+            </ng-container>
+
+            <span class="temperature">{{ status.temperature }} °C</span>
+        </div>
+
+        <div *ngIf="!status">
+            <mat-icon class="sync">sync</mat-icon>
+
+            <span class="temperature"><span class="skeleton">-</span>  °C</span>
+        </div>        
+    </div>
+</div>

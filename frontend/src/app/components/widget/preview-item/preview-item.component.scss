@@ -1,5 +1,5 @@
 .body {
-    width: 50vw;
+    width: calc(50vw - 1px);
     height: calc(50vh - 24px);
     display: flex;
     justify-content: center;

@@ -34,17 +34,17 @@
                 </table>
             </div>
 
-            <div class="set" *ngIf="status.mode != 'wind' && status.mode != 'aIComfort'">
+            <div class="set" *ngIf="status.mode != 'wind'">
                 <table>
                     <tr>
                         <td>
-                            <button mat-mini-fab class="temperatur-decrease" (click)="temperatureDecrease()" [disabled]="status.power == 'off' || (status.temperatureSetpoint <= status.minimumTemperatureSetpoint)"><mat-icon>remove</mat-icon></button>
+                            <button mat-mini-fab class="temperatur-decrease" (click)="temperatureDecrease()" [disabled]="status.power == 'off' || (status.temperatureSetpoint <= status.minimumTemperatureSetpoint) || status.mode == 'aIComfort'"><mat-icon>remove</mat-icon></button>
                         </td>
                         <td>
                             <span class="setpoint">{{ status.temperatureSetpoint }} °C</span>
                         </td>
                         <td>
-                            <button mat-mini-fab class="temperatur-increase" (click)="temperatureIncrease()" [disabled]="status.power == 'off' || (status.temperatureSetpoint >= status.maximumTemperatureSetpoint)"><mat-icon>add</mat-icon></button>
+                            <button mat-mini-fab class="temperatur-increase" (click)="temperatureIncrease()" [disabled]="status.power == 'off' || (status.temperatureSetpoint >= status.maximumTemperatureSetpoint) || status.mode == 'aIComfort'"><mat-icon>add</mat-icon></button>
                         </td>
                     </tr>
                 </table>

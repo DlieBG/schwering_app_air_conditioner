@@ -10,6 +10,7 @@
                 <mat-icon id="wind" *ngIf="status.mode == 'wind'">air</mat-icon>
                 <mat-icon class="dry" *ngIf="status.mode == 'dry'">dry_cleaning</mat-icon>
                 <mat-icon class="auto" *ngIf="status.mode == 'auto'">auto_fix_high</mat-icon>
+                <mat-icon class="aIComfort" *ngIf="status.mode == 'aIComfort'">psychology</mat-icon>
             </ng-container>
 
             <span class="temperature">{{ status.temperature }} °C</span>

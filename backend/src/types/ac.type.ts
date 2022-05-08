@@ -18,7 +18,7 @@ export interface AcStatus {
 
 export type PowerEnum = 'on' | 'off';
 
-export type ModeEnum = 'cool' | 'heat' | 'wind' | 'dry' | 'auto';
+export type ModeEnum = 'cool' | 'heat' | 'wind' | 'dry' | 'auto' | 'aIComfort';
 
 export type WindModeEnum = 'off' | 'sleep' | 'speed' | 'windFree' | 'windFreeSleep';
 

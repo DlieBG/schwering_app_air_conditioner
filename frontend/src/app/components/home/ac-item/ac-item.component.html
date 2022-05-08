@@ -11,6 +11,7 @@
                     <mat-icon id="wind" *ngIf="status.mode == 'wind'">air</mat-icon>
                     <mat-icon class="dry" *ngIf="status.mode == 'dry'">dry_cleaning</mat-icon>
                     <mat-icon class="auto" *ngIf="status.mode == 'auto'">auto_fix_high</mat-icon>
+                    <mat-icon class="aIComfort" *ngIf="status.mode == 'aIComfort'">psychology</mat-icon>
                 </ng-container>
 
                 <span class="name">
@@ -33,7 +34,7 @@
                 </table>
             </div>
 
-            <div class="set" *ngIf="status.mode != 'wind'">
+            <div class="set" *ngIf="status.mode != 'wind' && status.mode != 'aIComfort'">
                 <table>
                     <tr>
                         <td>
@@ -58,11 +59,12 @@
                       <mat-option value="wind">Ventilator</mat-option>
                       <mat-option value="dry">Trocknen</mat-option>
                       <mat-option value="auto">Automatik</mat-option>
+                      <mat-option value="aIComfort" disabled>Künstliche Intelligenz</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
 
-            <div class="wind">
+            <div class="wind" *ngIf="status.mode != 'aIComfort'">
                 <mat-button-toggle-group (click)="windModeChange()" [(ngModel)]="status.windMode" [disabled]="status.power == 'off'">
                     <mat-button-toggle value="off">
                         Normal

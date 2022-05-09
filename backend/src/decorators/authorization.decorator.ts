@@ -8,7 +8,7 @@ export const Authorization = createParamDecorator(
         let loginJwt: LoginJwt;
 
         try {
-            loginJwt = (await axios.get(process.env.VALIDATE_URL, { headers: { Authorization: authorizationHeader } })).data as LoginJwt;
+            loginJwt = {} as LoginJwt; //(await axios.get(process.env.VALIDATE_URL, { headers: { Authorization: authorizationHeader } })).data as LoginJwt;
         } catch {
             ctx.switchToHttp().getResponse().status(401).send();
         }

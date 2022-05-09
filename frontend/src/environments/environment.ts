@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
 
-  api: 'http://10.16.2.3:3000'
+  // api: 'http://10.16.2.3:3000'
+  api: 'http://127.0.0.1:3000'
 };
 
 /*

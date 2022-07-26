@@ -1,6 +1,7 @@
 export interface Ac {
     id: string;
     name: string;
+    timer: Date | null;
 }
 
 export interface AcStatus {

@@ -17,8 +17,20 @@ export class AcService {
     return this.httpClient.get<Ac[]>(`${environment.api}/ac`);
   }
 
+  getAc(id: string): Observable<Ac> {
+    return this.httpClient.get<Ac>(`${environment.api}/ac/${id}`);
+  }
+
+  setTimer(id: string, date: Date): Observable<any> {
+    return this.httpClient.post(`${environment.api}/ac/${id}/timer`, { date });
+  }
+
+  deleteTimer(id: string): Observable<any> {
+    return this.httpClient.delete(`${environment.api}/ac/${id}/timer`);
+  }
+
   getAcStatus(id: string): Observable<AcStatus> {
-    return this.httpClient.get<AcStatus>(`${environment.api}/ac/${id}`);
+    return this.httpClient.get<AcStatus>(`${environment.api}/ac/${id}/status`);
   }
 
   setPower(id: string, value: PowerEnum): Observable<boolean> {

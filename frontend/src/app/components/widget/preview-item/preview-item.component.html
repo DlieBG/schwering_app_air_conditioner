@@ -1,6 +1,9 @@
 <div class="body">
     <div class="center">
-        <h3>{{ ac.name }}</h3>
+        <h3>
+            {{ ac.name }}
+            <mat-icon class="timer">timer</mat-icon>
+        </h3>
 
         <div *ngIf="status">
             <mat-icon class="power" *ngIf="status.power == 'off'">power_settings_new</mat-icon>

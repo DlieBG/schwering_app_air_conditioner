@@ -10,6 +10,7 @@ import { Ac, AcStatus } from 'src/app/types/ac.type';
 })
 export class PreviewItemComponent implements OnInit {
 
+  ac$!: Observable<Ac>;
   @Input() ac!: Ac;
 
   status$!: Observable<AcStatus>;
@@ -21,10 +22,20 @@ export class PreviewItemComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
+      this.getAc();
       this.getStatus();
     }, 5000);
 
     this.getStatus();
+  }
+
+  getAc() {
+    this.ac$ = this.acService.getAc(this.ac.id);
+    this.ac$.subscribe({
+      next: (ac) => {
+        this.ac = ac;
+      }
+    });
   }
 
   getStatus() {

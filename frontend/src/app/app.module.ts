@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { HomeComponent } from './components/home/home/home.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AcItemComponent } from './components/home/ac-item/ac-item.component';
 import { PreviewItemComponent } from './components/widget/preview-item/preview-item.component';
+import { SetTimerComponent } from './components/home/ac-item/set-timer/set-timer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PreviewItemComponent } from './components/widget/preview-item/preview-i
     UnauthorizedComponent,
     HomeComponent,
     AcItemComponent,
-    PreviewItemComponent
+    PreviewItemComponent,
+    SetTimerComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { PreviewItemComponent } from './components/widget/preview-item/preview-i
     MatSlideToggleModule,
     MatSelectModule,
     MatButtonToggleModule,
+    MatSnackBarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }

@@ -118,6 +118,34 @@
                     </mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
+
+            <div class="timer" *ngIf="status.power == 'on'">
+                <div class="inactive-timer" *ngIf="!ac.timer">
+                    <mat-icon class="off">timer_off</mat-icon>
+
+                    <button mat-stroked-button (click)="setTimer()">Timer setzen</button>
+                </div>
+
+                <div class="active-timer" *ngIf="ac.timer">
+                    <mat-icon class="on">timer</mat-icon>
+
+                    <div class="time" *ngIf="timer$ | async as timer; else ready;">
+                        <span class="time-value">{{ timer.minutes }}</span>
+                        <span>Minuten</span>
+                    </div>
+
+                    <div class="time" *ngIf="timer$ | async as timer">
+                        <span class="time-value">{{ timer.seconds }}</span>
+                        <span>Sekunden</span>
+                    </div>
+
+                    <ng-template #ready>
+                        <h3>Abschaltung...</h3>
+                    </ng-template>
+
+                    <button mat-icon-button class="off" (click)="deleteTimer()"><mat-icon>delete</mat-icon></button>
+                </div>
+            </div>
             <!-- {{ status | json}} -->
         </div>
     </div>

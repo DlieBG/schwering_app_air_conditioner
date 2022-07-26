@@ -1,5 +1,6 @@
-import { Controller, Get, Param, Patch } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { resolveSoa } from 'dns';
+import { ObjectId, UpdateResult } from 'mongodb';
 import { Authorization } from 'src/decorators/authorization.decorator';
 import { AcService } from 'src/services/ac/ac.service';
 import { DbService } from 'src/services/db/db.service';
@@ -20,6 +21,21 @@ export class AcController {
     }
 
     @Get(':id')
+    async getAc(@Authorization() loginJwt: LoginJwt, @Param('id') id: string): Promise<Ac> {
+        return this.dbService.getCollection('devices').findOne<Ac>({ id });
+    }
+
+    @Post(':id/timer')
+    async setTimer(@Authorization() loginJwt: LoginJwt, @Param('id') id: string, @Body() body: { date: Date }): Promise<UpdateResult> {
+        return this.dbService.getCollection('devices').updateOne({ id }, { $set: { timer: body.date } });
+    }
+
+    @Delete(':id/timer')
+    async deleteTimer(@Authorization() loginJwt: LoginJwt, @Param('id') id: string): Promise<UpdateResult> {
+        return this.dbService.getCollection('devices').updateOne({ id }, { $set: { timer: null } });
+    }
+
+    @Get(':id/status')
     async getAcStatus(@Authorization() loginJwt: LoginJwt, @Param('id') id: string): Promise<AcStatus> {
         return this.acService.getStatus(id);
     }

@@ -2,14 +2,23 @@ version: '3'
 
 services:
   frontend:
-    build: frontend
+    # build: frontend
+    image: ghcr.io/dliebg/schwering_app_air_conditioner/frontend:main
     container_name: schwering_app_air_conditioner_frontend
     restart: unless-stopped
     ports:
       - 10004:80
 
   backend:
-    build: backend
+    # build: backend
+    image: ghcr.io/dliebg/schwering_app_air_conditioner/backend:main
     container_name: schwering_app_air_conditioner_backend
     restart: unless-stopped
     env_file: .env
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: schwering_app_air_conditioner_frontend schwering_app_air_conditioner_backend -i 3600

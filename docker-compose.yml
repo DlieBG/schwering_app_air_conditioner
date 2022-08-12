@@ -18,7 +18,7 @@ services:
 
   watchtower:
     image: containrrr/watchtower
-    container_name: watchtower
+    container_name: schwering_app_air_conditioner_watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: schwering_app_air_conditioner_frontend schwering_app_air_conditioner_backend -i 3600

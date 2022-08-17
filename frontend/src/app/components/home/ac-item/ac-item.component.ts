@@ -26,10 +26,10 @@ export class AcItemComponent implements OnInit {
   timer$: Observable<{ minutes: number, seconds: number } | null> = timer(0, 1000).pipe(
     map(() => {
       if(this.ac.timer) {
-        let minutes = Math.abs(new Date().getTime() - new Date(this.ac.timer).getTime()) / (1000 * 60) % 60;
+        let minutes = Math.abs(new Date().getTime() - new Date(this.ac.timer).getTime()) / (1000 * 60);
 
         return new Date() <= new Date(this.ac.timer) ? {
-          minutes: Math.floor(Math.abs(new Date().getTime() - new Date(this.ac.timer).getTime()) / (1000 * 60) % 60),
+          minutes: Math.floor(minutes),
           seconds: Math.floor((minutes - Math.floor(minutes)) * 60)
         } : null;
       }
